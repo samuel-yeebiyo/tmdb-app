@@ -1,0 +1,17 @@
+.Cards{
+    height:auto;
+    background:rgb(191, 191, 191);
+    box-shadow: 3px 6px 3px #0000;
+}
+.movie-image{
+    width:100%;
+    height:auto;
+}
+.movie-info{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100px;
+}
