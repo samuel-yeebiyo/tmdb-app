@@ -1,0 +1,110 @@
+.NowPlaying{
+    height:80vh;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y:hidden;
+    align-items: center;
+    position:relative;
+}
+.NowPlaying h1{
+    position: absolute;
+    z-index:8;
+    color:white;
+    top:10%;
+    left:10%;
+    font-size:70px;
+}
+.now-movie{
+    min-width:100vw;
+    height:100%;
+    position:relative;
+    transition: all 0.8s ease-in-out;
+    position:absolute;
+    z-index:-10;
+}
+.now-movie::after{
+    content:"";
+    position:absolute;
+    background:rgba(0,0,0,0.5);
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:2;
+}
+.movie-backdrop{
+    object-fit: cover;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.about-playing{
+    position:absolute;
+    z-index:3;
+    color:white;
+    top:35%;
+    left:10%;
+    width:40%;    
+}
+.about-playing h2{
+    margin-bottom:25px;
+    font-size:42px;
+}
+.about-playing h2 + p {
+    margin-bottom:20px;
+    font-size:21px;
+}
+.nav-but{
+    z-index: 5;
+    position: absolute;
+    cursor:pointer;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    width:5%;
+    align-items: center;
+}
+.nav-but:hover{
+    background:rgba(0,0,0,0.5)
+}
+
+
+.next{
+    left:100vw;
+}
+.before{
+    left:-100vw;
+}
+.current{
+    left:0;
+    z-index:5;
+}
+
+@media (max-width: 800px) {
+    .NowPlaying{
+        height:45vh;
+    }
+    .NowPlaying h1{
+        font-size:30px;
+        top:20%;
+        left:15%;
+    }
+    .about-playing{
+        width:70%;
+        left:15%;
+    }
+    .about-playing h2{
+        font-size:16px;
+    }
+    .about-playing p{
+        font-size:10px;
+    }
+    .about-playing h2 + p{
+        font-size:12px;
+    }
+    .nav-but{
+        width:10%;
+    }
+}

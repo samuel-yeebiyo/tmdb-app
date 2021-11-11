@@ -1,11 +1,11 @@
 .Cards{
     height:auto;
-    background:rgb(191, 191, 191);
-    box-shadow: 3px 6px 3px #0000;
+    background:#2c2c2c;
+    box-shadow: 4px 4px 5px #0000;
 }
 .movie-image{
     width:100%;
-    height:auto;
+    height:100%;
 }
 .movie-info{
     text-align: center;

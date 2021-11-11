@@ -3,16 +3,11 @@ import { config } from '../utils/tmbd-config' //configuration for tmdb for findi
 
 const Cards = ({movie}) => {
 
-    const image_url = `${config.images.secure_base_url}${config.images.poster_sizes[2]}/${movie.poster_path}`
+    const image_url = movie ? `${config.images.secure_base_url}${config.images.poster_sizes[4]}/${movie.poster_path}` : ""
 
     return (
         <div className="Cards">
-            <img className="movie-image" src={image_url}/>
-            <div className="movie-info">
-                <p>{movie.id}</p>
-                <p>{movie.original_title}</p>
-                <p>{movie.release_date}</p>
-            </div>
+        <img className="movie-image" src={image_url}/>
         </div>
     )
 }
