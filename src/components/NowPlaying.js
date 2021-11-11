@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 
 
-import '../css/latest.css'
+import '../css/now.css'
 import { config } from '../utils/tmbd-config'
 
 
@@ -19,10 +19,10 @@ const NowPlaying = () => {
           forw()
         }, 8000);
         return () => clearInterval(interval);
-      }, [current]);
+     }, [current]);
 
-    const getMovie = () => {
 
+     useEffect(()=>{
 
         console.log("Being fetched")
 
@@ -39,7 +39,9 @@ const NowPlaying = () => {
         }
 
         fetch()
-    }
+
+     },[])
+
 
     const forw = () => {
         if(current+1 > 4){
@@ -59,7 +61,7 @@ const NowPlaying = () => {
             
             <h1>Now Playing</h1>
             
-            {movie.length > 0 ?
+            {movie.length > 0 &&
                 movie.filter((value, index) => index <5).map((item, index)=>{
                     const image_url = item.backdrop_path ? `${config.images.secure_base_url}${config.images.backdrop_sizes[2]}/${item.backdrop_path}` : ""
                     
@@ -78,8 +80,6 @@ const NowPlaying = () => {
                         </div>  
                     )                  
                 })
-                :
-                <button style={{zIndex:300}} onClick={getMovie}>Get Latest Movie</button>    
             }
             
             <div className="nav-but" style={{right:0}} onClick={forw}>

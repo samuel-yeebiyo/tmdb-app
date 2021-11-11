@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import Cards from "./Cards";
 
 
 const Popular = () => {
     const [movies, setMovies] = useState([]);
-    
 
-    const getMovies = () => {
-
+    useEffect(()=>{
         const options = {
             method:'GET',
             url: 'https://api.themoviedb.org/3/movie/popular',
@@ -22,11 +20,12 @@ const Popular = () => {
         }
 
         fetch()
-    }
+    },[])
+
 
     return (
         <div className="Popular sec">
-            <p>Popular Movies</p> <button onClick={getMovies}>Get movies</button>
+            <p>Popular Movies</p>
             <div className="movies-container">
                 {movies.length > 0 &&
                     movies.map((item)=>(

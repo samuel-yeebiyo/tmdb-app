@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Cards from "./Cards";
 
@@ -6,9 +6,8 @@ const Upcoming = () => {
    
     const [movies, setMovies] = useState([]);
     
-
-    const getMovies = () => {
-
+    useEffect(() => {
+        
         const options = {
             method:'GET',
             url: 'https://api.themoviedb.org/3/movie/upcoming',
@@ -21,11 +20,13 @@ const Upcoming = () => {
         }
 
         fetch()
-    }
+        
+    }, [])
+
 
     return (
         <div className="Upcoming sec">
-            <p>Upcoming Movies</p> <button onClick={getMovies}>Get movies</button>
+            <p>Upcoming Movies</p>
             <div className="movies-container">
                 {movies.length > 0 &&
                     movies.map((item)=>(

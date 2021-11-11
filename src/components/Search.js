@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import Cards from "./Cards";
 
 
-const TopRated = () => {
+const Search = ({query}) => {
     const [movies, setMovies] = useState([]);
     
     useEffect(()=>{
+        console.log("Called to search")
+
         const options = {
             method:'GET',
-            url: 'https://api.themoviedb.org/3/movie/top_rated',
-            params: {api_key: process.env.REACT_APP_API_KEY, language: 'en-US', page: 1}
+            url: 'https:///api.themoviedb.org/3/search/movie',
+            params: {api_key: process.env.REACT_APP_API_KEY, language: 'en-US', page: 1, query: query}
         }
 
         async function fetch(){
@@ -20,14 +22,19 @@ const TopRated = () => {
         }
 
         fetch()
-    }, [])
+    }, [query])
+
+    const getMovies = () => {
+
+        
+    }
 
     return (
         <div className="Top sec">
-            <p>Top Rated Movies</p>
+            <p>Search Results</p>
             <div className="movies-container">
                 {movies.length > 0 &&
-                    movies.map((item)=>(
+                    movies.filter(item => !!item.poster_path).map((item)=>(
                         <Cards movie={item}/>
                     ))
                 }       
@@ -36,4 +43,4 @@ const TopRated = () => {
     )
 }
 
-export default TopRated
+export default Search
