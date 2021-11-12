@@ -19,8 +19,10 @@ const GenreCard = ({genre, select}) => {
 
     const genres = document.querySelectorAll('.genres');
 
-    genres.forEach((item)=>{
+    genres.forEach((item,index)=>{
         
+        
+
         item.addEventListener('click', ()=>{
             
             if(!item.classList.contains("active")){
@@ -31,7 +33,7 @@ const GenreCard = ({genre, select}) => {
                     }
                 })
 
-                item.classList.toggle("active")
+                item.classList.add("active")
             }
         })
     })
@@ -41,7 +43,7 @@ const GenreCard = ({genre, select}) => {
     }
     return (
         <div style={style} className="genres" onClick={()=> select(genre.id, genre.name)}>
-            <p>{genre.name}</p>
+            <p>{genre.name.toUpperCase()}</p>
         </div>
     )
 }

@@ -27,7 +27,7 @@ code {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 9px;
   height:10px;
 }
 
@@ -38,11 +38,11 @@ code {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(102, 102, 102);
+  background: rgb(80, 80, 80);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgb(53, 53, 53);
 }
