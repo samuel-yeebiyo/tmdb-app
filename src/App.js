@@ -32,15 +32,13 @@ function App() {
 
       <div className="nav">
         <div className="wrapper">
-          <div className="menus">
-            <Link to="/" onClick={()=>{setQuery('')}}>
-              <div className="logo"></div>
-            </Link>
-          </div>
+          <Link to="/" onClick={()=>{setQuery('')}}>
+            <div className="logo"></div>
+          </Link>
           <div className="search">
             <input placeholder="Search" value={query} onChange={handleQuery}/>
-            <Link to="/genres" onClick={()=>{setQuery('')}}>Genres</Link>
           </div>
+          <Link to="/genres" onClick={()=>{setQuery('')}}>Genres</Link>
         </div>
       </div>
       
