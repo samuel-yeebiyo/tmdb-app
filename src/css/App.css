@@ -1,37 +1,42 @@
+.App{
+    color:white;
+}
 .nav{
-    width:100;
+    width:100%;
     background:#2c2c2c;
-    height:5vh;
+    height:6vh;
+    box-shadow: 5px 5px 10px #0000;
+}
+.wrapper{
+    width:80%;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    height:100%;
 }
 .logo{
-    height:90%;
-    width:100px;
+    height:10px;
+    width:10px;
     background:black;
+}
+.links a{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
 }
 .search{
     display:flex;
     align-items: center;
-    height:70%;
+    height:60%;
+    width:25%;
 }
 .search > input{
     height:100%;
     margin-right:5px;
     outline: none;
-    width:170px;
-    padding:3px;
-}
-.search > div{
-    display: flex;
-    align-items: center;
-    border:1px solid white;
-    padding:2px;
-    cursor: pointer;
-}
-.search svg{
-    min-height:100%;
+    width:100%;
+    padding:10px;
 }
 
 .search > div:hover svg, .search > div:hover{
@@ -46,13 +51,37 @@
 }
 .home-section{
     color:white;
-    padding:20px;
-    margin-top:20px;
+    margin-top:0px;
+    width:100%;
 }
 .sec{
     margin-bottom:80px;
+    padding:20px;
 }
 .sec p{
     font-size:30px;
     margin-bottom: 15px;
+    font-weight: bold;
 }
+
+@media (max-width: 1300px){
+   .movies-container{
+       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) ;
+   }
+}
+
+@media (max-width: 800px){
+    .movies-container{
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) ;
+    }
+    .sec{
+        margin-bottom:60px;
+    }
+    .sec p{
+        font-size:24px;
+        margin-bottom: 15px;
+    }
+    .search{
+        width:55%;
+    }
+ }
