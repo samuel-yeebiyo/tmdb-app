@@ -4,6 +4,7 @@ import axios from "axios";
 import GenreCard from "./GenreCard";
 import Cards from "./Cards";
 import NextPage from "./NextPage";
+import LoadingCard from './LoadingCard'
 
 import '../css/genre.css'
 
@@ -33,13 +34,18 @@ const Genre = () => {
         
     }, [])
 
-    useEffect(()=>{
-        console.log({movies})
-    })
+    function remove(){
+        if(movies.length > 0){
+            setMovies([]);
+        }
+    }
 
     const getMovies = (id, name) => {
 
         if(name !== current){
+
+            remove()
+
             const options = {
                 method:'GET',
                 url: 'https://api.themoviedb.org/3/discover/movie',
@@ -60,6 +66,7 @@ const Genre = () => {
             fetch()
         }
     }
+
 
     const getNext = ()=>{
 
@@ -104,10 +111,11 @@ const Genre = () => {
             <div className="genre-display">
                 <p className="genre-name">{current}</p>
                 <div className="movies-container">
-                    {movies.length > 0 &&
+                    {movies.length > 0 ?
                         movies.map((item)=>(
                             <Cards movie={item}/>
-                        ))
+                        )):
+                        <LoadingCard number={20}/>
                     }
                     <NextPage next={getNext}/>
                 </div>

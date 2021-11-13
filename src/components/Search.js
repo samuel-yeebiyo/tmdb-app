@@ -8,7 +8,7 @@ const Search = ({query}) => {
     
     useEffect(()=>{
         console.log("Called to search")
-
+        remove()
         const options = {
             method:'GET',
             url: 'https:///api.themoviedb.org/3/search/movie',
@@ -24,9 +24,11 @@ const Search = ({query}) => {
         fetch()
     }, [query])
 
-    const getMovies = () => {
-
-        
+    
+    function remove(){
+        if(movies.length > 0){
+            setMovies([]);
+        }
     }
 
     return (

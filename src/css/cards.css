@@ -2,6 +2,19 @@
     height:auto;
     background:#2c2c2c;
     box-shadow: 4px 4px 5px #0000;
+    aspect-ratio:1/1.6;
+    min-width: 100%;
+    min-height: 100%;
+    animation:loading 1s alternate infinite;
+}
+
+@keyframes loading {
+    0%{
+        background:#2c2c2c
+    }
+    100%{
+        background:#1c1c1c
+    }
 }
 .movie-image{
     width:100%;

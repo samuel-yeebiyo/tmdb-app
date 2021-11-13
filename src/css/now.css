@@ -40,6 +40,7 @@
     position:absolute;
     top:0;
     left:0;
+    background:#2c2c2c
 }
 .about-playing{
     position:absolute;
@@ -56,6 +57,7 @@
 .about-playing h2 + p {
     margin-bottom:20px;
     font-size:21px;
+    font-size:1vw;
 }
 .nav-but{
     z-index: 5;
@@ -87,6 +89,10 @@
     .about-playing{
         width:60%;
     }
+    .about-playing h2 + p{
+        font-size:12px;
+        font-size:100%;
+    }
 }
 
 @media (max-width: 800px) {
@@ -110,6 +116,7 @@
     }
     .about-playing h2 + p{
         font-size:12px;
+        font-size:55%;
     }
     .nav-but{
         width:10%;

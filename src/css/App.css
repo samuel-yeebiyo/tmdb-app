@@ -108,7 +108,7 @@
     .sec{
         margin-bottom:60px;
     }
-    .sec p{
+    .sec > p{
         font-size:24px;
         margin-bottom: 15px;
     }

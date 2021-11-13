@@ -1,6 +1,7 @@
 import { useState, useEffect} from "react";
 import axios from "axios";
 import Cards from "./Cards";
+import LoadingCard from './LoadingCard'
 
 
 const Popular = () => {
@@ -27,10 +28,11 @@ const Popular = () => {
         <div className="Popular sec">
             <p>Popular Movies</p>
             <div className="movies-container">
-                {movies.length > 0 &&
+                {movies.length > 0 ?
                     movies.map((item)=>(
                         <Cards movie={item}/>
-                    ))
+                    )):
+                    <LoadingCard number={10}/>
                 }       
             </div>
         </div>
