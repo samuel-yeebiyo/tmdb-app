@@ -3,6 +3,7 @@ import axios from "axios";
 
 import GenreCard from "./GenreCard";
 import Cards from "./Cards";
+import NextPage from "./NextPage";
 
 import '../css/genre.css'
 
@@ -10,7 +11,9 @@ const Genre = () => {
 
     const [movies, setMovies] = useState([]);
     const [genre, setGenre] = useState([])
+    const [currentId, setCurrentId] = useState('')
     const [current, setCurrent] = useState('')
+    const [nextPage, setNextPage] = useState(2)
     
     useEffect(() => {
 
@@ -30,6 +33,10 @@ const Genre = () => {
         
     }, [])
 
+    useEffect(()=>{
+        console.log({movies})
+    })
+
     const getMovies = (id, name) => {
 
         if(name !== current){
@@ -45,11 +52,31 @@ const Genre = () => {
                 setMovies(data.data.results)
             }
 
-            setCurrent(name) 
+            setCurrent(name)
+            setCurrentId(id)
+            setNextPage(2)
             
 
             fetch()
         }
+    }
+
+    const getNext = ()=>{
+
+        const options = {
+            method:'GET',
+            url: 'https://api.themoviedb.org/3/discover/movie',
+            params: {api_key: process.env.REACT_APP_API_KEY, language: 'en-US', with_genres:`${currentId}`, page: nextPage}
+        }
+
+        async function fetch(){
+            const data = await axios.request(options);
+            console.log(data);
+            setMovies(prev => prev.concat(data.data.results))
+            setNextPage(prev => prev+1)
+        }
+
+        fetch()
     }
 
     return (
@@ -81,7 +108,8 @@ const Genre = () => {
                         movies.map((item)=>(
                             <Cards movie={item}/>
                         ))
-                    }       
+                    }
+                    <NextPage next={getNext}/>
                 </div>
             </div>
         </div>

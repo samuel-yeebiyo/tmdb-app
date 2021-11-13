@@ -13,6 +13,7 @@
     top:10%;
     left:10%;
     font-size:70px;
+    text-decoration: underline #80cba9;
 }
 .now-movie{
     min-width:100vw;
@@ -80,6 +81,12 @@
 .current{
     left:0;
     z-index:5;
+}
+
+@media (max-width:1280px){
+    .about-playing{
+        width:60%;
+    }
 }
 
 @media (max-width: 800px) {

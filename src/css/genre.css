@@ -17,7 +17,6 @@
     width:11.1%;
     min-height:100%;
     position:relative;
-    text-align: center;
     overflow: hidden;
     transition: all 0.2s ease-out;
     background-position: center !important;
@@ -94,6 +93,7 @@
     }
     .genres p{
         font-size:12px;
-        width:150px;
+        width:160px;
+        text-align: center;
     }
 }

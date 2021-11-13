@@ -1,0 +1,49 @@
+.Next{
+    width:185px;
+    background:#2c2c2c;
+    aspect-ratio:1/1.6;
+    min-width: 100%;
+    min-height: 100%;
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.load{
+    min-width: 100%;
+    min-height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.load > svg{
+    fill:white;
+    width:80%;
+    height:auto;
+    max-width:80%;
+}
+.load > span{
+    font-size:21px;
+}
+
+@media (max-width:1300px){
+    .Next{
+        width:120px;
+        min-width:100%;
+        min-height: 100%;
+    }
+    .load > span{
+        font-size:16px;
+    }
+ 
+}
+@media (max-width:800px){
+    .Next{
+        width:90px;
+    }
+    .load > span{
+        font-size:11px;
+    }
+ 
+}

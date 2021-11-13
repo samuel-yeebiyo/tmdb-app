@@ -9,6 +9,8 @@ import Search from './components/Search';
 import Home from './components/Home';
 import Info from './components/Info';
 
+import logo from './assets/logo.svg'
+
 function App() {
 
   const [query, setQuery] = useState('');
@@ -33,7 +35,9 @@ function App() {
       <div className="nav">
         <div className="wrapper">
           <Link to="/" onClick={()=>{setQuery('')}}>
-            <div className="logo"></div>
+            <div className="logo">
+              <img src={logo} alt="tmdb logo"/>
+            </div>
           </Link>
           <div className="search">
             <input placeholder="Search" value={query} onChange={handleQuery}/>
